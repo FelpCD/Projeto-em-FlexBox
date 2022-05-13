@@ -79,6 +79,7 @@ img{
     background-color: #122ab2;
     border-radius: 8px;
     transition: 0.4s;
+    animation: animation 1.2s ease-in-out;
 }
 
 main > h1{
@@ -157,7 +158,7 @@ main > h1{
 
 /*Preços*/
 .preco{
-    background-color: #f7f7f7;
+    background-color: #dddddda9;
     padding: 60px;
 
     display: flex;
@@ -224,14 +225,127 @@ main > h1{
     padding: 15px 0px;
     text-align: center;
 }
-.preco-item  a:hover{
-    background-color: #1d5be2c4;
+
+/*Animação botão COMPRAR*/
+
+.preco-item > a:hover{
+    animation: btn-animation 1.5s ease-in-out;
 }
 .preco-item > a:visited{
     color: #222222;
 }
+
+
+.qualidade{
+    max-width: 960px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.qualidade-item{
+    flex-grow: 1; /* O item se expande para tentar ocupar o máximo de espaço do conteiner*/ 
+    flex-shrink: 1; /* Permite que o item tenham o seu tamanho reduzido para caber no conteiner*/
+    flex-basis: 300px; /*Usei de forma à definir o valor base do item */ 
+    margin: 20px 10px;
+}
+.qualidade-item h2{
+    font-size: 1.8em;
+    color: #9c9c9c;
+    margin-bottom: 15px;
+}
+.qualidade-item h2::before{
+    content: '';
+    display: inline-block;
+    height: 23px;
+    width: 8px;
+    margin-right: 10px;
+}
+.qualidade-item:nth-of-type(3n+1) h2::before{
+    background-color: #ae81ff;
+}
+.qualidade-item:nth-of-type(3n+2) h2::before{
+    background-color: #f9265e;
+}
+.qualidade-item:nth-of-type(3n+3) h2::before{
+    background-color: #66d9eb;
+}
+.qualidade-item > p{
+    font-size: 1.10em;
+    line-height: 1.4;
+}
+/*Newsletter*/ 
+
+.newsletter{
+    background-color: #dddddd;
+    padding: 60px calc((100% - 960px) / 2);
+    display: flex;
+    flex-wrap: wrap;
+}
+.newsletter-info{
+    flex: 1 1 260px;
+    margin: 0 10px;
+}
+.newsletter-info > h1{
+    font-size: 3em;
+    color: #9c9c9c;
+}
+.newsletter-info > p{
+    font-size: 1.25em;
+    font-style: italic;
+    max-width: 230px;
+    color: #7c7c7c;
+    margin-bottom: 10px;
+}
+
+.newsletter-form{
+    flex: 2 1 260px;
+    margin: 0 10px;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.newsletter-form input{
+    flex: 3 1 200px;
+    font-size: 1.15em;
+    color: #7c7c7c;
+    border: 2px solid #2c70ff;
+    background: transparent;
+    padding: 10px;
+    margin: 0px;
+    border-radius: 0px;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    outline: none;
+}
+.newsletter-form button{
+    flex: 1 1 200px;
+    font-family: 'Nunito', Arial, Helvetica, sans-serif;
+    font-size: 1.10em;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #2c70ff;
+    color: white;
+    cursor: pointer;
+    margin: 0px;
+    border: none;
+    padding: 0px 10px;
+}
+
+/*rodapé*/
+
+.rodape{ 
+    background-color: #122ab2;
+    color: white;
+    text-align: center;
+}
+.rodape > p{
+    padding: 10px 0px;
+    font-size: 1.1em;
+    
+}
+
+
 /*media queris*/
-@media (max-width: 900px){
+@media (max-width: 1024px){
     .preco{
         padding-left: 10px;
         padding-right: 10px;
@@ -261,6 +375,56 @@ main > h1{
      }
      .preco .preco-item:nth-child(2){
         order: -1;
+    }   
+}
+
+/*botões do newslatter*/
+@media (max-width: 852px){
+    .newsletter-form button{
+        flex: 1 1 200px;
+        font-family: 'Nunito', Arial, Helvetica, sans-serif;
+        font-size: 1.10em;
+        font-weight: bold;
+        text-transform: uppercase;
+        background-color: #2c70ff;
+        color: white;
+        cursor: pointer;
+        margin: 0px;
+        border: none;
+        padding: 15px 10px;
     }
-     
+    }
+    
+/*Keyframes de animaçãoes*/
+
+/*botões de menu*/
+@keyframes animation{
+    0%{
+         transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(-10px);
+    }
+    50%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+  
+/*botões de comprar*/
+@keyframes btn-animation {
+    0%{
+         transform: translateY(0px);
+    }
+    25%{
+        transform: translateY(-20px);
+    }
+    50%{
+        transform: translateY(20px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
 }
